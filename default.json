@@ -1,0 +1,46 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Detailed dependency reporting with all updates held for dashboard approval.",
+  "extends": ["config:recommended"],
+  "dependencyDashboard": true,
+  "dependencyDashboardApproval": true,
+  "dependencyDashboardAutoclose": false,
+  "dependencyDashboardHeader": "Dependency report: detected dependencies, available updates, repository warnings, vulnerability summaries, and potentially abandoned packages. No automatic update branches or PRs are requested, including security fixes. For reporting only, leave all approval and action checkboxes unchecked: selecting one requests changes to this repository.",
+  "dependencyDashboardOSVVulnerabilitySummary": "all",
+  "dependencyDashboardReportAbandonment": true,
+  "abandonmentThreshold": "2 years",
+  "automerge": false,
+  "configMigration": false,
+  "lockFileMaintenance": {
+    "enabled": false
+  },
+  "pruneStaleBranches": false,
+  "vulnerabilityAlerts": {
+    "dependencyDashboardApproval": true
+  },
+  "packageRules": [
+    {
+      "description": "Keep individual updates visible and require approval even when inherited rules change update behavior.",
+      "matchPackageNames": ["*"],
+      "groupName": null,
+      "groupSlug": null,
+      "dependencyDashboardApproval": true,
+      "automerge": false,
+      "separateMajorMinor": true,
+      "separateMinorPatch": true,
+      "separateMultipleMajor": true
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardCategory": "Major updates"
+    },
+    {
+      "matchUpdateTypes": ["minor"],
+      "dependencyDashboardCategory": "Minor updates"
+    },
+    {
+      "matchUpdateTypes": ["patch"],
+      "dependencyDashboardCategory": "Patch updates"
+    }
+  ]
+}
