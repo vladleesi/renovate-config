@@ -9,6 +9,7 @@ Add `renovate.json` to each repository's default branch, then enable
 
 ```json
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>vladleesi/renovate-config"]
 }
 ```
